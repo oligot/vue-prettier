@@ -1,6 +1,6 @@
 {
 	"name": "vue-prettier",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "Prettify .vue files with Prettier",
 	"license": "MIT",
 	"repository": "oligot/vue-prettier",
