@@ -15,6 +15,12 @@ _Note that this is a temporary solution while waiting for [Prettier to support V
 $ npm install --global vue-prettier
 ```
 
+Make sure that you also have [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler) as a dev dependency (which should be the case if you use [vue-loader](https://github.com/vuejs/vue-loader) or [rollup-plugin-vue](https://github.com/vuejs/rollup-plugin-vue))
+
+```
+$ npm install --save-dev vue-template-compiler
+```
+
 ## Usage
 
 ### CLI
