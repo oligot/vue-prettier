@@ -23,6 +23,9 @@
 		"prettier": "^1.9.2",
 		"req-cwd": "^2.0.0"
 	},
+	"peerDependencies": {
+		"vue-template-compiler": "^2.0.0"
+	},
 	"devDependencies": {
 		"ava": "^0.20.0",
 		"eslint": "^4.13.1",
