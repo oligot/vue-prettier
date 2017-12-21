@@ -1,2 +1,5 @@
-* text=auto
-*.js text eol=lf
+yarn.lock binary
+
+# Force lf for the bin script
+# See https://github.com/npm/npm/issues/4607
+cli.js eol=lf

@@ -4,8 +4,11 @@ const fs = require('fs');
 const globby = require('globby');
 const program = require('commander');
 const getStdin = require('get-stdin');
+const loudRejection = require('loud-rejection');
 const pkg = require('./package.json');
 const prettify = require('./index');
+
+loudRejection();
 
 program
 	.version(pkg.version)

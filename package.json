@@ -20,6 +20,7 @@
 		"commander": "^2.12.2",
 		"get-stdin": "^5.0.1",
 		"globby": "^7.1.1",
+		"loud-rejection": "^1.6.0",
 		"prettier": "^1.9.2",
 		"req-cwd": "^2.0.0"
 	},
