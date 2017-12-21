@@ -16,7 +16,7 @@ async function prettify(content, filename) {
 	var formatted = content;
 	if (parsed.template) {
 		const formattedTemplate = prettier.format(parsed.template.content, Object.assign({parser: 'parse5'}, prettierOptions));
-		formatted = `${formatted.substring(0, parsed.script.start)}\n${formattedTemplate}${formatted.substring(parsed.script.end)}`;
+		formatted = `${formatted.substring(0, parsed.template.start)}\n${formattedTemplate}${formatted.substring(parsed.template.end)}`;
 	}
 	parsed.styles.forEach(style => {
 		const formattedStyle = prettier.format(style.content, Object.assign({parser: style.lang || 'css'}, prettierOptions));
