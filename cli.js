@@ -10,6 +10,11 @@ const prettify = require('./index');
 
 loudRejection();
 
+function part(val) {
+	const regex = /^(template|script|style)$/i;
+	return val.split(',').filter(v => regex.test(v));
+}
+
 program
 	.version(pkg.version)
 	.description(pkg.description)
@@ -19,6 +24,7 @@ program
 	.option('-l, --list-different', `print names of files that are different from Prettier's formatting`)
 	.option('--stdin-filepath <path>', 'path to the file to pretend that stdin comes from')
 	.option('--stdin', 'force reading input from stdin')
+	.option('--part [part]', 'Single File Component part', part, ['script', 'style'])
 	.parse(process.argv);
 
 async function run() {
@@ -27,12 +33,18 @@ async function run() {
 		if (!str) {
 			program.help();
 		}
-		console.log(await prettify(str, program.stdinFilepath));
+		console.log(await prettify(str, {
+			filename: program.stdinFilepath,
+			part: program.part
+		}));
 	} else {
 		const paths = await globby(program.args);
 		const files = await Promise.all(paths.map(async path => {
 			const content = fs.readFileSync(path, 'utf8');
-			const formatted = await prettify(content, path);
+			const formatted = await prettify(content, {
+				filename: path,
+				part: program.part
+			});
 			return {
 				name: path,
 				content,
